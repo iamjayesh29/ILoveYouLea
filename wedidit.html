@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💕</text></svg>">
+<meta charset="UTF-8">
+<title>We Did It 🎀</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --pink:#ff6fa5;
+  --rose:#e84393;
+  --lav:#c084fc;
+}
+
+*{margin:0;padding:0;box-sizing:border-box;}
+
+body{
+  height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  background:linear-gradient(135deg,#ffe4ef,#f3d9ff);
+  font-family:'Poppins',sans-serif;
+  overflow:hidden;
+  animation:fadeIn 1.5s ease;
+}
+
+@keyframes fadeIn{
+  from{opacity:0;}
+  to{opacity:1;}
+}
+
+.container{
+  max-width:750px;
+  padding:2rem;
+}
+
+h1{
+  font-family:'Playfair Display',serif;
+  font-size:3.5rem;
+  color:var(--rose);
+  margin-bottom:2rem;
+}
+
+p{
+  font-size:1.2rem;
+  line-height:2;
+  color:#7a4060;
+  margin-top:1rem;
+  opacity:0;
+  animation:textFade 2s forwards;
+  animation-delay:1s;
+}
+
+@keyframes textFade{
+  to{opacity:1;}
+}
+
+.heart{
+  position:fixed;
+  bottom:-20px;
+  font-size:18px;
+  animation:floatUp linear infinite;
+  opacity:.6;
+  pointer-events:none;
+}
+
+@keyframes floatUp{
+  from{transform:translateY(0);}
+  to{transform:translateY(-110vh);opacity:0;}
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+  <h1>We Did It 💕💕</h1>
+
+  <p>
+    This wasn’t just a question<br>
+    It was a promise<br><br>
+    From today,it’s you and me,and its OFFICIALl!!!<br>
+    ANDDD YESSS!!!I WOULD LOVE TO BE YOUR BOYFRINED(OFFICIALLY)!!💖💖<br><br>
+    Not just in calls,not just in messages <br>
+    but in plans, in growth,in everything<br><br>
+    
+  </p>
+
+  <h1>🎀🥰01/03/2026🥰🎀</h1>
+</div>
+
+<script>
+function createHeart(){
+  const h=document.createElement("div");
+  h.className="heart";
+  h.innerText=["💕","💖","💗","✨"][Math.floor(Math.random()*4)];
+  h.style.left=Math.random()*100+"vw";
+  h.style.animationDuration=(6+Math.random()*6)+"s";
+  document.body.appendChild(h);
+  setTimeout(()=>h.remove(),12000);
+}
+setInterval(createHeart,800);
+const music = document.getElementById("bgMusic");
+
+if(localStorage.getItem("playMusic") === "true"){
+  music.volume = 0.45;
+  music.play();
+}
+</script>
+<audio id="bgMusic" loop>
+  <source src="romantic.mp3" type="audio/mpeg">
+</audio>
+</body>
+</html>

@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💕</text></svg>">
+<meta charset="UTF-8">
+<title>One More Thing 🎀</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --pink:#ff6fa5;
+  --rose:#e84393;
+  --lav:#c084fc;
+}
+
+*{margin:0;padding:0;box-sizing:border-box;}
+
+body{
+  height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:linear-gradient(135deg,#ffe4ef,#f3d9ff);
+  font-family:'Poppins',sans-serif;
+  overflow:hidden;
+  position:relative;
+  animation:fadeIn 1.2s ease;
+}
+
+@keyframes fadeIn{
+  from{opacity:0;}
+  to{opacity:1;}
+}
+
+/* Glow blobs */
+.glow{
+  position:absolute;
+  width:350px;
+  height:350px;
+  background:rgba(255,111,165,.25);
+  border-radius:50%;
+  filter:blur(100px);
+  animation:floatGlow 8s ease-in-out infinite alternate;
+  z-index:-1;
+}
+
+.glow1{top:-120px;left:-120px;}
+.glow2{bottom:-120px;right:-120px;animation-delay:2s;}
+
+@keyframes floatGlow{
+  from{transform:translate(0,0);}
+  to{transform:translate(50px,40px);}
+}
+
+/* Floating Hearts */
+.heart{
+  position:fixed;
+  bottom:-20px;
+  font-size:18px;
+  opacity:.6;
+  animation:floatUp linear infinite;
+  pointer-events:none;
+  z-index:-1;
+}
+
+@keyframes floatUp{
+  from{transform:translateY(0);}
+  to{transform:translateY(-110vh);opacity:0;}
+}
+
+.container{
+  max-width:650px;
+  text-align:center;
+  padding:2rem;
+}
+
+/* Title animation */
+h1{
+  font-family:'Playfair Display',serif;
+  font-size:3.2rem;
+  color:var(--rose);
+  margin-bottom:2rem;
+  opacity:0;
+  transform:translateY(30px);
+  animation:titleIn 1.2s forwards;
+}
+
+@keyframes titleIn{
+  to{opacity:1;transform:translateY(0);}
+}
+
+/* Buttons */
+.buttons{
+  margin-top:2rem;
+}
+
+button{
+  padding:1rem 2.5rem;
+  margin:0 1rem;
+  border:none;
+  border-radius:50px;
+  font-size:1rem;
+  cursor:pointer;
+  transition:.3s;
+  font-weight:500;
+}
+
+#yes{
+  background:linear-gradient(135deg,var(--pink),var(--lav));
+  color:white;
+  box-shadow:0 15px 40px rgba(255,111,165,.4);
+}
+
+#yes:hover{
+  transform:scale(1.1);
+  box-shadow:0 20px 50px rgba(255,111,165,.6);
+}
+
+#no{
+  background:white;
+  border:2px solid var(--pink);
+  color:var(--rose);
+  position:relative;
+}
+
+.response{
+  margin-top:2.5rem;
+  font-size:1.2rem;
+  color:var(--rose);
+  opacity:0;
+  transition:opacity 1.2s ease;
+}
+
+/* Screen flash */
+.flash{
+  position:fixed;
+  inset:0;
+  background:white;
+  opacity:0;
+  pointer-events:none;
+}
+
+.back-btn{
+  position:fixed;
+  top:20px;
+  left:20px;
+  padding:.6rem 1.4rem;
+  border-radius:50px;
+  background:linear-gradient(135deg,var(--pink),var(--lav));
+  color:white;
+  text-decoration:none;
+  font-size:.9rem;
+  box-shadow:0 10px 25px rgba(255,111,165,.4);
+  transition:.3s;
+}
+
+.back-btn:hover{
+  transform:scale(1.1);
+}
+</style>
+</head>
+
+<body>
+
+<div class="glow glow1"></div>
+<div class="glow glow2"></div>
+<div class="flash" id="flash"></div>
+
+<a href="missyou.html" class="back-btn">← Back</a>
+
+<div class="container">
+  <h1>Would you like to be my girlfriend,Léa?(officially)💖💕 </h1>
+
+  <div class="buttons">
+    <button id="yes" onclick="accepted()">Yes 🥰💗</button>
+    <button id="no">No 😔</button>
+  </div>
+
+  <div class="response" id="response">
+    Forever starts here 💗💗💗
+  </div>
+</div>
+
+<script>
+/* Floating hearts */
+function createHeart(){
+  const heart=document.createElement("div");
+  heart.className="heart";
+  heart.innerText=["💕","💖","💗","✨"][Math.floor(Math.random()*4)];
+  heart.style.left=Math.random()*100+"vw";
+  heart.style.fontSize=(14+Math.random()*14)+"px";
+  heart.style.animationDuration=(6+Math.random()*6)+"s";
+  document.body.appendChild(heart);
+  setTimeout(()=>heart.remove(),12000);
+}
+setInterval(createHeart,700);
+
+/* YES CLICK */
+function accepted(){
+
+  const flash = document.getElementById("flash");
+  const music = document.getElementById("bgMusic");
+
+  // Save flag that music should continue
+  localStorage.setItem("playMusic", "true");
+
+  music.volume = 0;
+  music.play();
+
+  let fade = setInterval(()=>{
+    if(music.volume < 0.45){
+      music.volume += 0.02;
+    } else {
+      clearInterval(fade);
+    }
+  },100);
+
+  flash.style.transition = "opacity .4s";
+  flash.style.opacity = "1";
+
+  setTimeout(()=>{ flash.style.opacity = "0"; },400);
+
+  setTimeout(()=>{
+    document.body.style.transition = "opacity .8s";
+    document.body.style.opacity = "0";
+
+    setTimeout(()=>{
+      window.location.href = "wedidit.html";
+    },800);
+
+  },1200);
+}
+/* NO BUTTON MOVES */
+const noBtn=document.getElementById("no");
+
+noBtn.addEventListener("mouseover",()=>{
+  noBtn.style.position="absolute";
+  noBtn.style.top=Math.random()*80+"%";
+  noBtn.style.left=Math.random()*80+"%";
+});
+
+/* Heart Explosion */
+function heartExplosion(){
+  for(let i=0;i<30;i++){
+    const h=document.createElement("div");
+    h.className="heart";
+    h.innerText="💖";
+    h.style.left=(50 + (Math.random()*30-15))+"vw";
+    h.style.animationDuration=(3+Math.random()*3)+"s";
+    document.body.appendChild(h);
+    setTimeout(()=>h.remove(),6000);
+  }
+}
+</script>
+<audio id="bgMusic" loop>
+  <source src="romantic.mp3" type="audio/mpeg">
+</audio>
+
+</body>
+</html>

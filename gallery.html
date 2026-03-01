@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💕</text></svg>">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Moments 🎀</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --pink:#ff6fa5;
+  --rose:#e84393;
+  --lav:#c084fc;
+  --bg1:#ffe4ef;
+  --bg2:#f3d9ff;
+  --deep:#2a1a2e;
+}
+
+*{margin:0;padding:0;box-sizing:border-box;}
+
+body{
+  font-family:'Poppins',sans-serif;
+  background:linear-gradient(135deg,var(--bg1),var(--bg2));
+  color:#7a4060;
+  overflow-x:hidden;
+}
+
+h1{
+  text-align:center;
+  font-family:'Playfair Display',serif;
+  font-size:3rem;
+  margin:4rem 0 2rem;
+  color:var(--rose);
+}
+
+/* TIMELINE WRAPPER */
+.timeline{
+  max-width:1000px;
+  margin:0 auto 5rem;
+  padding:0 2rem;
+}
+
+/* EACH ROW */
+.row{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin:6rem 0;
+  gap:3rem;
+  opacity:0;
+  transform:translateY(60px);
+  transition:all 1s ease;
+}
+
+.row.visible{
+  opacity:1;
+  transform:translateY(0);
+}
+
+/* LEFT RIGHT ALTERNATION */
+.row:nth-child(even){
+  flex-direction:row-reverse;
+}
+
+/* IMAGE */
+.photo-box{
+  flex:1;
+  background:#000;
+  border-radius:30px;
+  overflow:hidden;
+  box-shadow:0 25px 70px rgba(255,111,165,.25);
+  transition:.4s;
+}
+
+.photo-box:hover{
+  transform:scale(1.05);
+}
+
+.photo-box img{
+  width:100%;
+  height:auto;
+  display:block;
+}
+
+/* TEXT */
+.text-box{
+  flex:1;
+}
+
+.text-box h2{
+  font-family:'Playfair Display',serif;
+  font-size:2rem;
+  margin-bottom:1rem;
+  color:var(--rose);
+}
+
+.text-box p{
+  line-height:1.9;
+  font-size:1rem;
+}
+.heart{
+  position:fixed;
+  bottom:-20px;
+  pointer-events:none;
+  animation:floatUp linear infinite;
+  opacity:.5;
+  z-index:-1;
+}
+
+@keyframes floatUp{
+  from{transform:translateY(0);opacity:.8;}
+  to{transform:translateY(-110vh);opacity:0;}
+}
+
+/* MOBILE */
+@media(max-width:768px){
+  .row{
+    flex-direction:column !important;
+    text-align:center;
+  }
+}
+.back-btn{
+  position:fixed;
+  top:20px;
+  left:20px;
+  padding:.7rem 1.5rem;
+  border-radius:50px;
+  background:linear-gradient(135deg,var(--pink),var(--lav));
+  color:white;
+  text-decoration:none;
+  font-weight:600;
+  box-shadow:0 10px 30px rgba(255,111,165,.3);
+  transition:.3s;
+}
+
+.back-btn:hover{
+  transform:scale(1.1);
+}
+</style>
+</head>
+
+<body>
+    <a href="index.html" class="back-btn">← Back to Home</a>
+
+<h1>Our Moments 💕💕</h1>
+
+<div class="timeline">
+
+  <div class="row">
+    <div class="photo-box">
+      <img src="image2.jpeg">
+    </div>
+    <div class="text-box">
+      <h2>The First Screenshot 📱</h2>
+      <p>
+        I remember this call.This was the call where we started screenshots of our video call together.
+        Start of capturing those infinite memoriess!!💖💖🫣
+      </p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="photo-box">
+      <img src="image3.jpeg">
+    </div>
+    <div class="text-box">
+      <h2>Late Night Talks 🌙</h2>
+      <p>
+        Different time zones.Sharing the Same heartbeat.
+        Even after we hang up,your voice stays with me,i think of you every night before sleeping!!🫶🫶
+        This call very best and memorable and special🫣(ifykyk)
+      </p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="photo-box">
+      <img src="image1.jpeg">
+    </div>
+    <div class="text-box">
+      <h2>Your Cute Pretty Smile!!!💖</h2>
+      <p>
+        Through pixels,through lag,through distance,
+        your smile still feels real,just wanna see you happy smile like this foreverr.Your beutiful smile is what i would die forrr!!!
+        Just want to see your pretty smileeee!!!!💖
+        Petition to meet as soon as possible!!😩✋🏻
+      </p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="photo-box">
+      <img src="image7.jpeg">
+    </div>
+    <div class="text-box">
+      <h2>Slayy queeen!!!💅🏻💕</h2>
+      <p>
+        You are even slaying on the videoo calll,you just slayyy all the timeeee,like a queeenn!!!!Screens can’t hold what I feel for you.💅🏻
+        Looking like an actresss for reall!!!😩💖
+        
+      </p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="photo-box">
+      <img src="image5.jpeg">
+    </div>
+    <div class="text-box">
+      <h2>The Baddieee!!!🫣</h2>
+      <p>
+        Just the way you look,your curly hair suits you sooo muchhh,such a baddie loook!
+        Your baddie behaviour,the way you talk,the aura you have,the way you treat people!!!Just perfecttt!!
+        LIKE A BADDIEEEE!!!!!🫣💅🏻
+      </p>
+    </div>
+  </div>
+
+</div>
+
+<script>
+/* SCROLL REVEAL */
+const observer = new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      entry.target.classList.add("visible");
+    }
+  });
+},{threshold:0.2});
+
+document.querySelectorAll(".row").forEach(row=>{
+  observer.observe(row);
+});
+function createHeart(){
+  const heart = document.createElement("div");
+  heart.className = "heart";
+  heart.innerText = ["💕","💗","💖","🌸","✨"][Math.floor(Math.random()*5)];
+  heart.style.left = Math.random()*100 + "vw";
+  heart.style.fontSize = (15 + Math.random()*20) + "px";
+  heart.style.animationDuration = (6 + Math.random()*8) + "s";
+  document.body.appendChild(heart);
+
+  setTimeout(()=>heart.remove(),12000);
+}
+
+setInterval(createHeart, 500);
+</script>
+
+</body>
+</html>

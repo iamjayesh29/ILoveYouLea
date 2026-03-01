@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💕</text></svg>">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>I Miss You 💕</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --pink:#ff6fa5;
+  --rose:#e84393;
+  --lav:#c084fc;
+  --bg1:#ffe4ef;
+  --bg2:#f3d9ff;
+}
+
+*{margin:0;padding:0;box-sizing:border-box;}
+
+body{
+  font-family:'Poppins',sans-serif;
+  height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  background:linear-gradient(135deg,var(--bg1),var(--bg2));
+  overflow:hidden;
+}
+
+/* Floating Hearts */
+.heart{
+  position:fixed;
+  bottom:-20px;
+  font-size:18px;
+  opacity:.5;
+  animation:floatUp linear infinite;
+  pointer-events:none;
+  z-index:-1;
+}
+
+@keyframes floatUp{
+  from{transform:translateY(0);opacity:.8;}
+  to{transform:translateY(-110vh);opacity:0;}
+}
+
+/* Glow background */
+.glow{
+  position:absolute;
+  width:300px;
+  height:300px;
+  background:rgba(255,111,165,0.2);
+  border-radius:50%;
+  filter:blur(80px);
+  animation:floatGlow 8s ease-in-out infinite alternate;
+}
+
+.glow1{top:-100px;left:-100px;}
+.glow2{bottom:-100px;right:-100px;animation-delay:2s;}
+
+@keyframes floatGlow{
+  from{transform:translate(0,0);}
+  to{transform:translate(40px,30px);}
+}
+
+.container{
+  max-width:650px;
+  padding:2rem;
+}
+
+/* Name animation */
+.name{
+  font-family:'Playfair Display',serif;
+  font-size:3rem;
+  color:var(--rose);
+  margin-bottom:1.5rem;
+}
+
+.name span{
+  opacity:0;
+  display:inline-block;
+  transform:translateY(20px);
+  animation:letterIn .6s forwards;
+}
+
+@keyframes letterIn{
+  to{opacity:1;transform:translateY(0);}
+}
+
+p{
+  color:#7a4060;
+  font-size:1.1rem;
+  line-height:1.9;
+  margin-bottom:2rem;
+  opacity:0;
+  animation:fadeText 2s forwards;
+  animation-delay:1.5s;
+}
+
+@keyframes fadeText{
+  to{opacity:1;}
+}
+
+.surprise{
+  margin-top:1.5rem;
+  font-size:1.2rem;
+  color:var(--rose);
+  opacity:0;
+  transition:opacity 1.5s ease;
+}
+
+/* Back button */
+.back-btn{
+  position:fixed;
+  top:20px;
+  left:20px;
+  padding:.7rem 1.5rem;
+  border-radius:50px;
+  background:linear-gradient(135deg,var(--pink),var(--lav));
+  color:white;
+  text-decoration:none;
+  font-weight:600;
+  box-shadow:0 10px 30px rgba(255,111,165,.3);
+  transition:.3s;
+}
+
+.back-btn:hover{
+  transform:scale(1.1);
+}
+</style>
+</head>
+
+<body>
+
+<div class="glow glow1"></div>
+<div class="glow glow2"></div>
+
+<a href="index.html" class="back-btn">← Back Home</a>
+
+<div class="container">
+
+  <div class="name" id="animatedName"></div>
+
+  <p>
+    I don’t just miss you when we’re not talking.<br>
+     I miss you even when we’re on call<br>
+     because I wish I was sitting next to you instead of staring at a screen.<br>
+     But until that day comes…<br>
+     I’ll keep missing you a little too much.
+     I LOVE YOU SO MUCH, LÉA!!💕💕
+  </p>
+
+  <div class="surprise" id="surpriseText">
+    Before finishing,i have a question for you!!<br>Double click your name!!💕💕
+  </div>
+
+</div>
+
+<script>
+/* LETTER BY LETTER NAME */
+const nameText = "I Miss You, Léa!!";
+const nameContainer = document.getElementById("animatedName");
+
+nameText.split("").forEach((letter,index)=>{
+  const span = document.createElement("span");
+  span.textContent = letter;
+  span.style.animationDelay = (index * 0.08) + "s";
+  nameContainer.appendChild(span);
+});
+
+/* AUTO SURPRISE AFTER 5 SECONDS */
+setTimeout(()=>{
+  document.getElementById("surpriseText").style.opacity="1";
+},10000);
+
+/* SUBTLE FLOATING HEARTS */
+function createHeart(){
+  const heart = document.createElement("div");
+  heart.className = "heart";
+  heart.innerText = ["💕","💗","💖","🌸"][Math.floor(Math.random()*4)];
+  heart.style.left = Math.random()*100 + "vw";
+  heart.style.fontSize = (14 + Math.random()*14) + "px";
+  heart.style.animationDuration = (6 + Math.random()*6) + "s";
+  document.body.appendChild(heart);
+  setTimeout(()=>heart.remove(),12000);
+}
+
+setInterval(createHeart, 700);
+/* SECRET EASTER EGG */
+
+const nameElement = document.getElementById("animatedName");
+
+nameElement.addEventListener("dblclick", ()=>{
+  document.body.style.transition = "opacity .6s";
+  document.body.style.opacity = "0";
+
+  setTimeout(()=>{
+    window.location.href = "her.html";
+  },600);
+});
+</script>
+
+</body>
+</html>

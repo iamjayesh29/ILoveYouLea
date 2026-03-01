@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💕</text></svg>">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Léa 🎀</title>
+
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --pink:#ff6fa5;
+  --rose:#e84393;
+  --lav:#c084fc;
+  --peach:#ffb347;
+  --bg1:#ffe4ef;
+  --bg2:#f3d9ff;
+  --deep:#2a1a2e;
+}
+
+*{margin:0;padding:0;box-sizing:border-box;}
+
+body{
+  font-family:'Poppins',sans-serif;
+  background:linear-gradient(135deg,var(--bg1),var(--bg2));
+  overflow:hidden;
+  scroll-behavior:smooth;
+}
+
+/* PASSWORD GATE */
+#loginGate{
+  position:fixed;
+  inset:0;
+  background:linear-gradient(140deg,#ffe4ef,#f3e8ff);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  z-index:1000;
+  transition:opacity .6s ease;
+}
+
+.login-box{
+  background:white;
+  padding:3rem;
+  border-radius:30px;
+  text-align:center;
+  box-shadow:0 25px 80px rgba(255,111,165,.35);
+  animation:pop .6s ease;
+}
+
+@keyframes pop{
+  from{transform:scale(.6);opacity:0;}
+  to{transform:scale(1);opacity:1;}
+}
+
+.login-box h2{
+  font-family:'Playfair Display',serif;
+  color:var(--rose);
+  margin-bottom:1.5rem;
+}
+
+.login-box input{
+  padding:1rem;
+  border-radius:50px;
+  border:2px solid var(--pink);
+  outline:none;
+  width:240px;
+  text-align:center;
+}
+
+.login-box button{
+  margin-top:1rem;
+  padding:.8rem 2.2rem;
+  border:none;
+  border-radius:50px;
+  background:linear-gradient(135deg,var(--pink),var(--lav));
+  color:white;
+  font-weight:600;
+  cursor:pointer;
+  transition:.3s;
+}
+
+.login-box button:hover{transform:scale(1.1);}
+
+#gateError{margin-top:.8rem;color:var(--rose);font-size:.85rem;}
+
+/* HERO */
+.hero{
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:2rem;
+  animation:fadeIn 1s ease;
+}
+
+@keyframes fadeIn{
+  from{opacity:0;transform:translateY(40px);}
+  to{opacity:1;transform:translateY(0);}
+}
+
+.hero h1{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(3rem,8vw,5rem);
+  color:var(--rose);
+  text-shadow:0 8px 30px rgba(232,67,147,.3);
+}
+
+.hero h2{
+  margin-top:1rem;
+  font-weight:300;
+  color:#8b4a6f;
+}
+
+.btn{
+  margin-top:2rem;
+  padding:1rem 2.5rem;
+  border:none;
+  border-radius:50px;
+  background:linear-gradient(135deg,var(--pink),var(--lav));
+  color:white;
+  font-size:1rem;
+  cursor:pointer;
+  transition:.3s;
+}
+
+.btn:hover{transform:scale(1.1);}
+
+/* SECTION */
+.section{
+  padding:5rem 2rem;
+  text-align:center;
+}
+
+.section h2{
+  font-family:'Playfair Display',serif;
+  font-size:2.5rem;
+  color:var(--rose);
+  margin-bottom:1rem;
+}
+
+/* LOVE LETTER */
+.letter{
+  max-width:700px;
+  margin:3rem auto;
+  background:white;
+  padding:3rem;
+  border-radius:30px;
+  box-shadow:0 25px 80px rgba(255,111,165,.25);
+  line-height:2;
+  color:#7a4060;
+  animation:fadeIn 1s ease;
+}
+
+/* VALENTINE SECTION */
+.valentine{
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  position:relative;
+}
+
+.valentine h2{
+  font-family:'Playfair Display',serif;
+  font-size:3rem;
+  color:var(--rose);
+}
+
+.valentine-buttons{
+  margin-top:3rem;
+}
+
+.valentine button{
+  padding:1rem 2.5rem;
+  margin:0 1rem;
+  border:none;
+  border-radius:50px;
+  font-size:1rem;
+  cursor:pointer;
+  transition:.3s;
+}
+
+#yesBtn{
+  background:linear-gradient(135deg,var(--pink),var(--lav));
+  color:white;
+}
+
+#yesBtn:hover{transform:scale(1.1);}
+
+#noBtn{
+  background:white;
+  color:var(--rose);
+  border:2px solid var(--pink);
+  position:relative;
+}
+
+/* Floating hearts */
+.heart{
+  position:fixed;
+  bottom:-20px;
+  pointer-events:none;
+  animation:floatUp linear infinite;
+  opacity:.5;
+  z-index:-1;
+}
+
+@keyframes floatUp{
+  from{transform:translateY(0);opacity:.8;}
+  to{transform:translateY(-110vh);opacity:0;}
+}
+
+footer{
+  padding:3rem;
+  text-align:center;
+  background:var(--deep);
+  color:#f5d9ff;
+}
+.photo-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:2rem;
+  max-width:1100px;
+  margin:3rem auto 0;
+}
+
+.photo-card{
+  position:relative;
+  border-radius:25px;
+  overflow:hidden;
+  box-shadow:0 20px 60px rgba(255,111,165,.2);
+  transition:.4s;
+}
+
+.photo-card:hover{
+  transform:translateY(-12px) scale(1.03);
+}
+
+.photo-card img{
+  width:100%;
+  height:300px;
+  object-fit:cover;
+  transition:.5s;
+}
+
+.photo-card:hover img{
+  transform:scale(1.08);
+}
+
+.photo-overlay{
+  position:absolute;
+  bottom:0;
+  width:100%;
+  background:linear-gradient(transparent,rgba(0,0,0,.7));
+  color:white;
+  padding:1rem;
+  font-size:.95rem;
+  text-align:left;
+}
+.reveal{
+  opacity:0;
+  transform:translateY(40px);
+  transition:all .8s ease;
+}
+
+.reveal.visible{
+  opacity:1;
+  transform:translateY(0);
+}
+.gallery-link{
+  display:inline-block;
+  margin-top:2rem;
+  padding:1rem 2.5rem;
+  border-radius:50px;
+  background:linear-gradient(135deg,var(--pink),var(--lav));
+  color:white;
+  font-weight:600;
+  text-decoration:none;
+  transition:.3s;
+}
+
+.gallery-link:hover{
+  transform:scale(1.1);
+}
+.hold-container{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:1.2rem;
+  margin-top:2rem;
+}
+
+.progress-bar{
+  width:220px;
+  height:10px;
+  background:rgba(255,255,255,.6);
+  border-radius:50px;
+  overflow:hidden;
+  box-shadow:inset 0 2px 6px rgba(0,0,0,.1);
+}
+
+.progress-fill{
+  height:100%;
+  width:0%;
+  background:linear-gradient(90deg,var(--pink),var(--lav));
+  transition:width 0.1s linear;
+}
+</style>
+</head>
+
+<body>
+
+<!-- PASSWORD -->
+<div id="loginGate">
+  <div class="login-box">
+    <h2>Enter Our Secret 🫣</h2>
+    <input type="password" id="gatePassword" placeholder="A Special Date(ddmmyyyy)">
+    <button onclick="unlockSite()">Unlock</button>
+    <p id="gateError"></p>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <h1>For Léa 🥰🎀</h1>
+  <h2>You are the best thing that has ever ever happened to me Léa!!!!</h2>
+  <button class="btn" onclick="showNickname()">Only For You 💕</button>
+<p id="nicknameDisplay" style="margin-top:1.5rem; font-size:1.3rem; color:#e84393; font-weight:600;"></p>
+</section>
+
+<!-- LOVE LETTER -->
+<section class="section">
+  <h2>A Note For You 💌</h2>
+  <div class="letter">
+    Léa,<br><br>
+
+I didn’t build this for an occasion<br>
+I built this because loving you deserves its own space💕<br><br>
+
+Just imagine something for a sec<br>
+if you hadn’t seen my comment under that book on Wattpad that dayy<br>
+we might have never met<br>
+The Snapchat request,the accidental face reveal on video call...<br>
+everything happened for a reason<br>
+And I’m so grateful it did, because now we share something truly special.<br><br>
+
+What we have is rare💗<br><br>
+
+I love our calls,our video calls,our endless texts,where we talk for hours<br>
+the sneaky moments when we hide from our parents just to talk,<br>
+the silence after we hang up,<br>
+and the way time flies when we’re together<br><br>
+
+I love how close we are<br>
+We tell each other everything without fear<br>
+The trust between us is something i chearish deeply<br><br>
+
+I love your cute and pretty smile<br>
+The way you blush<br>
+The way you get flustered when you look at me<br>
+Your beautiful gorgeous eyes<br>
+Your curly hair<br>
+Every little detail that makes you,you,Léa💕<br><br>
+
+I love our random brainrot meme sending,sending reels to eachother<br>
+The way we laugh without judging each other<br>
+Sharing music<br>
+Listening to each other’s favorite songs<br>
+Playing games<br>
+Talking about our wild dreams, our future date ideas, even our wildest thoughts(ykwim)🫣<br><br>
+
+Everything with you feels natural.Easy.<br><br>
+
+And one day<br>
+this distance will disappear<br><br>
+
+One day, there won’t be screens between us<br>
+There will just be us,hugging each other so tight after waiting for so long🫣<br><br>
+
+That day will be one of the best days of our lives💕<br><br>
+
+Until then, I’m choosing you babe!<br>
+Every day<br>
+Without hesitation<br><br>
+
+Always yours,<br>
+Jayesh (or Jaya) 💗<br>
+  </div>
+</section>
+<!-- GALLERY BUTTON SECTION -->
+<section class="section">
+  <h2>Our Moments 📸</h2>
+  <p style="margin-top:1rem;color:#8b4a6f;">
+    Some memories deserve their own space.<br>Some of the occasional or best photos which we have taken along our journey,<br>the screenshots of the video call,sharing our selfies,<br>lookine each others smilesss,enjoys small moments together!!🤍
+  </p>
+
+  <a href="gallery.html" class="gallery-link">
+  ✨ Open Our Memory Timeline ✨
+</a>
+</section>
+<div style="text-align:center; margin-top:4rem;">
+  <h2 style="font-family:'Playfair Display',serif;color:var(--rose);">
+    Hold If You Miss Me Léa!!💕
+  </h2>
+
+  <div class="hold-container">
+    <button id="holdBtn" class="btn">Press & Hold</button>
+    <div class="progress-bar">
+      <div class="progress-fill" id="progressFill"></div>
+    </div>
+  </div>
+
+  <p id="holdMessage" style="margin-top:1.5rem;color:var(--rose);font-weight:500;"></p>
+</div>
+
+
+
+<footer>
+Made with love for Léa-Farah,my beutiful princess!!🌸
+</footer>
+
+<script>
+document.body.style.overflow="hidden";
+
+/* PASSWORD */
+function unlockSite(){
+  const validPasswords=["25012026","04082008"];
+  const input=document.getElementById("gatePassword").value;
+
+  if(validPasswords.includes(input)){
+    const gate=document.getElementById("loginGate");
+    gate.style.opacity="0";
+    setTimeout(()=>{
+      gate.style.display="none";
+      document.body.style.overflow="auto";
+    },600);
+  }else{
+    document.getElementById("gateError").textContent="That's not our secret 🤍";
+  }
+}
+
+/* FLOATING HEARTS */
+function createHeart(){
+  const heart=document.createElement("div");
+  heart.className="heart";
+  heart.innerText=["💕","💗","💖","🌸","✨"][Math.floor(Math.random()*5)];
+  heart.style.left=Math.random()*100+"vw";
+  heart.style.fontSize=(15+Math.random()*20)+"px";
+  heart.style.animationDuration=(6+Math.random()*8)+"s";
+  document.body.appendChild(heart);
+  setTimeout(()=>heart.remove(),12000);
+}
+setInterval(createHeart,500);
+
+/* HOLD BUTTON — CLEAN & RELIABLE */
+window.addEventListener("DOMContentLoaded",()=>{
+
+  const holdBtn=document.getElementById("holdBtn");
+  const progressFill=document.getElementById("progressFill");
+
+  let holdInterval=null;
+  let progress=0;
+
+  function startHold(){
+    progress=0;
+    progressFill.style.width="0%";
+
+    holdInterval=setInterval(()=>{
+      progress+=2;
+      progressFill.style.width=progress+"%";
+
+      if(progress>=100){
+        clearInterval(holdInterval);
+        document.body.style.transition="opacity .6s";
+        document.body.style.opacity="0";
+
+        setTimeout(()=>{
+          window.location.href="missyou.html";
+        },700);
+      }
+    },40);
+  }
+
+  function stopHold(){
+    clearInterval(holdInterval);
+    if(progress<100){
+      progress=0;
+      progressFill.style.width="0%";
+    }
+  }
+
+  holdBtn.addEventListener("pointerdown",startHold);
+  holdBtn.addEventListener("pointerup",stopHold);
+  holdBtn.addEventListener("pointerleave",stopHold);
+
+});
+const nicknames = [
+  "My Mistress 💕",
+  "My Princess 💕",
+  "My Goddess 💕",
+  "My ma'am 💕",
+  "Cutest Human Alive 💕",
+  "My Beutiful Girl 🌸",
+  "My Baby 💗",
+  "My Babe 💕",
+  "Pretty Girl 🥺",
+  "Baby Love 💞",
+  "My Everything ✨",
+  "My Favorite Notification 💕",
+  "Miss Perfect 💎",
+  "My Safe Place 🤍",
+  "Gorgeous Girl 💖",
+  "My Bro 💕",
+  "My Woman💕",
+  "My Fine Shyt!!💕",
+  "My Mommy💗"
+];
+
+let lastIndex = -1;
+
+function showNickname(){
+  let randomIndex;
+
+  do {
+    randomIndex = Math.floor(Math.random() * nicknames.length);
+  } while (randomIndex === lastIndex);
+
+  lastIndex = randomIndex;
+
+  const display = document.getElementById("nicknameDisplay");
+  display.innerText = nicknames[randomIndex];
+}
+</script>
+
+</body>
+</html>
